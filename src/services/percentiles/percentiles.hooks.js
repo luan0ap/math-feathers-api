@@ -1,4 +1,8 @@
-const { disallow } = require('feathers-hooks-common')
+const { disallow, validate } = require('feathers-hooks-common')
+const { validatorListOfNumbersOnly } = require('hooks')
+const validatorPercetileSchema = (data) => {
+  return null
+}
 
 module.exports = {
   before: {
@@ -9,7 +13,10 @@ module.exports = {
     get: [
       disallow()
     ],
-    create: [],
+    create: [
+      validatorListOfNumbersOnly(),
+      validate(validatorPercetileSchema)
+    ],
     update: [
       disallow()
     ],
