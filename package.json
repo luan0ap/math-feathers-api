@@ -1,6 +1,6 @@
 {
   "name": "math-feathers-api",
-  "description": "",
+  "description": "Math API using feathers",
   "version": "0.0.0",
   "homepage": "",
   "private": true,

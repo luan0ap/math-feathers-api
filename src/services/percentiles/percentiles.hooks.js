@@ -1,6 +1,14 @@
 const { disallow, validate } = require('feathers-hooks-common')
 const { validatorListOfNumbersOnly } = require('hooks')
+const { isNumber } = require('utils')
+
 const validatorPercetileSchema = (data) => {
+  if (!isNumber(data.percent)) {
+    return {
+      percent: 'must be a number'
+    }
+  }
+
   return null
 }
 
