@@ -6,7 +6,18 @@ exports.Medians = class Medians {
   }
 
   async create (data, params) {
-    return data.list[Math.floor(data.list.length / 2)]
+    const sortAscList = data.list.sort((a, b) => a - b)
+    const isListEven = sortAscList.length % 2 === 0
+    const index = Math.floor(sortAscList.length / 2)
+
+    if (isListEven) {
+      const numberAbove = sortAscList[index]
+      const numberBelow = sortAscList[index - 1]
+
+      return Number(((numberAbove + numberBelow) / 2).toFixed(2))
+    }
+
+    return sortAscList[index]
   }
 
   async find (params) {
